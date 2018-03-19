@@ -1,5 +1,12 @@
 PODS:
   - Alamofire (4.6.0)
+  - GoogleMaps (2.6.0):
+    - GoogleMaps/Maps (= 2.6.0)
+  - GoogleMaps/Base (2.6.0)
+  - GoogleMaps/Maps (2.6.0):
+    - GoogleMaps/Base
+  - GooglePlaces (2.6.0):
+    - GoogleMaps/Base (= 2.6.0)
   - IQKeyboardManagerSwift (5.0.0)
   - NVActivityIndicatorView (4.1.1):
     - NVActivityIndicatorView/Presenter (= 4.1.1)
@@ -14,6 +21,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - GoogleMaps
+  - GooglePlaces
   - IQKeyboardManagerSwift (= 5.0.0)
   - NVActivityIndicatorView
   - RealmSwift
@@ -22,6 +31,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
+  GooglePlaces: f6ddf33b75cef69e888907d9947c57198ed845f3
   IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
   NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
   Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
@@ -29,6 +40,6 @@ SPEC CHECKSUMS:
   SwiftyCam: 86c114177a1b1f5dc2c82384577d0c20b922a31b
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 0fc44721c4fd04a2c0116c5eb5f64ed0dff319cf
+PODFILE CHECKSUM: 298a46f932b71a4ecdc46541a85d6b07aab740e0
 
 COCOAPODS: 1.1.1

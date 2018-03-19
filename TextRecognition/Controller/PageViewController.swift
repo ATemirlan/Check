@@ -15,31 +15,9 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setup()
         disableBounces()
-        
-        sentenceAnalyze("")
-    }
-    
-    func sentenceAnalyze(_ sentence : String) -> Void {
-        let tagger = NSLinguisticTagger(tagSchemes: [.nameType], options: 0)
-        let text = "In 1997, Sandy Williamson and Slaughter Fitz-Hugh co-founded CapTech Consulting, Inc. in their hometown of Richmond, VA."
-        
-        tagger.string = text
-        
-        let range = NSRange(location: 0, length: text.utf16.count)
-        let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace, .joinNames]
-        
-        let tags: [NSLinguisticTag] = [.personalName, .placeName, .organizationName]
-        
-        tagger.enumerateTags(in: range, unit: .word, scheme: .lexicalClass, options: options) {
-            tag, tokenRange, stop in
-            if let tag = tag, tags.contains(tag) {
-                let token = (text as NSString).substring(with: tokenRange)
-                print(token)
-            }
-        }
-
     }
     
     func setup() {

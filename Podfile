@@ -11,5 +11,7 @@ target 'TextRecognition' do
   pod 'RealmSwift'
   pod 'NVActivityIndicatorView'
   pod 'IQKeyboardManagerSwift', '5.0.0'
-
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
+  
 end

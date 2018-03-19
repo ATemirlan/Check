@@ -12,6 +12,7 @@
 		91147CBB205A875300DC997F /* CameraSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91147CBA205A875300DC997F /* CameraSwitch.swift */; };
 		914CBB5D205793CB0089E56D /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914CBB5B205793CB0089E56D /* HistoryTableViewCell.swift */; };
 		914CBB5E205793CB0089E56D /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 914CBB5C205793CB0089E56D /* HistoryTableViewCell.xib */; };
+		9150F986205F6D6C00A788C1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9150F985205F6D6C00A788C1 /* Utils.swift */; };
 		91C9866D205634CA00803EBD /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C9866C205634CA00803EBD /* PageViewController.swift */; };
 		91C98673205634F100803EBD /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C9866E205634F000803EBD /* DateExtension.swift */; };
 		91C98674205634F100803EBD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C9866F205634F000803EBD /* Extensions.swift */; };
@@ -40,6 +41,7 @@
 		91147CBA205A875300DC997F /* CameraSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSwitch.swift; sourceTree = "<group>"; };
 		914CBB5B205793CB0089E56D /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		914CBB5C205793CB0089E56D /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
+		9150F985205F6D6C00A788C1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		91C9866C205634CA00803EBD /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		91C9866E205634F000803EBD /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		91C9866F205634F000803EBD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				91C9866E205634F000803EBD /* DateExtension.swift */,
 				91C9866F205634F000803EBD /* Extensions.swift */,
 				91C98672205634F100803EBD /* Router.swift */,
+				9150F985205F6D6C00A788C1 /* Utils.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				91147CBB205A875300DC997F /* CameraSwitch.swift in Sources */,
 				91FFA03A204F921900EAD7B5 /* AppDelegate.swift in Sources */,
 				91C98675205634F100803EBD /* Constants.swift in Sources */,
+				9150F986205F6D6C00A788C1 /* Utils.swift in Sources */,
 				91CB7C37205BBFB60034DE6E /* Label.swift in Sources */,
 				91C98676205634F100803EBD /* Alert.swift in Sources */,
 				91CB7C2F205BBC400034DE6E /* ListViewController.swift in Sources */,

@@ -7,20 +7,16 @@
 //
 
 import UIKit
+import GoogleMaps
+import GooglePlaces
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var imgView: UIImageView!
     
-    var image: UIImage!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        imgView.image = image
     }
-    
-    @IBAction func back(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
+
     
 }

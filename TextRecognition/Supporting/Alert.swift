@@ -50,6 +50,12 @@ class Alert {
         vc.present(alert, animated: true, completion: nil)
     }
     
+    static func show(text: String, above vc: UIViewController) {
+        let alert = UIAlertController(title: nil, message: text, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ок", style: .cancel, handler: { (action) in}))
+        vc.present(alert, animated: true, completion: nil)
+    }
+    
     static func showAlert(vc: UIViewController, title: String, message: String, actions: [UIAlertAction]) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         

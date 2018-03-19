@@ -11,6 +11,8 @@ import SwiftyCam
 import Alamofire
 import SwiftyJSON
 import CoreLocation
+import GooglePlaces
+import GoogleMaps
 
 protocol ViewControllerAppearance {
     func viewControllerAppeared(with index: Int)
@@ -22,7 +24,7 @@ enum CameraType {
     case text, product
 }
 
-class CameraViewController: SwiftyCamViewController, ListTableViewProtocol {
+class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLocationManagerDelegate {
     
     @IBOutlet var textFocus: [UIView]!
     @IBOutlet var productFocus: [UIView]!
@@ -85,6 +87,16 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol {
     @objc func cameraAppeared() {
         blurView.isHidden = true
         captureButton.isEnabled = true
+    }
+    
+    func setupCoreLocation() {
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager = CLLocationManager()
+            locationManager!.delegate = self
+            locationManager!.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager!.requestWhenInUseAuthorization()
+            locationManager!.startUpdatingLocation()
+        }
     }
     
     // MARK: - Actions
@@ -168,12 +180,6 @@ extension CameraViewController: SwiftyCamViewControllerDelegate {
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
-//        if let location = userLocation {
-//            lookUpCurrentLocation(location: location, completionHandler: { (placemark) in
-//                Alert.showError(textError: "\(placemark?.thoroughfare) - \(placemark?.name)", above: self)
-//            })
-//        }
-        
         blurView.isHidden = false
 
         switch currentCameraType {
@@ -184,36 +190,10 @@ extension CameraViewController: SwiftyCamViewControllerDelegate {
             recognizeText(photo: photo)
             break
         }
-    }
-    
-}
-
-extension CameraViewController: CLLocationManagerDelegate {
-    
-    func setupCoreLocation() {
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager = CLLocationManager()
-            locationManager!.delegate = self
-            locationManager!.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager!.requestWhenInUseAuthorization()
-            locationManager!.startUpdatingLocation()
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        userLocation = locations[0]
-    }
-    
-    func lookUpCurrentLocation(location: CLLocation, completionHandler: @escaping (CLPlacemark?) -> Void ) {
-        let geocoder = CLGeocoder()
         
-        geocoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) in
-            if error == nil {
-                completionHandler(placemarks?[0])
-            } else {
-                completionHandler(nil)
-            }
-        })
+//        Utils.getCurrentPlace { (place) in
+//            Alert.show(text: place ?? "Место не найдено", above: self)
+//        }
     }
     
 }

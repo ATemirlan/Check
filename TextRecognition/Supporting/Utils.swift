@@ -31,9 +31,7 @@ class Utils {
     }
     
     class func getCurrentPlace(completion: @escaping(_ placeName: String?) -> Void) {
-        let placesClient = GMSPlacesClient.shared()
-        
-        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
+        GMSPlacesClient.shared().currentPlace(callback: { (placeLikelihoodList, error) -> Void in
             if let _ = error {
                 completion(nil)
                 return

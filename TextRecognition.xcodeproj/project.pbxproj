@@ -10,6 +10,9 @@
 		24804FDB387DA5B355D97190 /* Pods_TextRecognition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D771A5D23E484261AAAA06EA /* Pods_TextRecognition.framework */; };
 		91147CB9205A76EA00DC997F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91147CB8205A76EA00DC997F /* ViewController.swift */; };
 		91147CBB205A875300DC997F /* CameraSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91147CBA205A875300DC997F /* CameraSwitch.swift */; };
+		913357392060AEF700264456 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913357382060AEF700264456 /* Record.swift */; };
+		9133573B2060B93700264456 /* RealmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133573A2060B93700264456 /* RealmController.swift */; };
+		9133573E2060D30900264456 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133573D2060D30900264456 /* Profile.swift */; };
 		914CBB5D205793CB0089E56D /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914CBB5B205793CB0089E56D /* HistoryTableViewCell.swift */; };
 		914CBB5E205793CB0089E56D /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 914CBB5C205793CB0089E56D /* HistoryTableViewCell.xib */; };
 		9150F986205F6D6C00A788C1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9150F985205F6D6C00A788C1 /* Utils.swift */; };
@@ -28,7 +31,6 @@
 		91CB7C33205BBCC90034DE6E /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB7C31205BBCC90034DE6E /* ListTableViewCell.swift */; };
 		91CB7C34205BBCC90034DE6E /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91CB7C32205BBCC90034DE6E /* ListTableViewCell.xib */; };
 		91CB7C37205BBFB60034DE6E /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB7C36205BBFB60034DE6E /* Label.swift */; };
-		91CB7C3A205BD3C70034DE6E /* LinguisticTaggerProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB7C39205BD3C70034DE6E /* LinguisticTaggerProcess.swift */; };
 		91CDB0EF2058EFCD0033422F /* RequestEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CDB0EE2058EFCD0033422F /* RequestEngine.swift */; };
 		91FFA03A204F921900EAD7B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFA039204F921900EAD7B5 /* AppDelegate.swift */; };
 		91FFA03F204F921A00EAD7B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91FFA03D204F921A00EAD7B5 /* Main.storyboard */; };
@@ -39,6 +41,9 @@
 /* Begin PBXFileReference section */
 		91147CB8205A76EA00DC997F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		91147CBA205A875300DC997F /* CameraSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSwitch.swift; sourceTree = "<group>"; };
+		913357382060AEF700264456 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		9133573A2060B93700264456 /* RealmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmController.swift; sourceTree = "<group>"; };
+		9133573D2060D30900264456 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		914CBB5B205793CB0089E56D /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		914CBB5C205793CB0089E56D /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		9150F985205F6D6C00A788C1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -57,7 +62,6 @@
 		91CB7C31205BBCC90034DE6E /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		91CB7C32205BBCC90034DE6E /* ListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		91CB7C36205BBFB60034DE6E /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
-		91CB7C39205BD3C70034DE6E /* LinguisticTaggerProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinguisticTaggerProcess.swift; sourceTree = "<group>"; };
 		91CDB0EE2058EFCD0033422F /* RequestEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEngine.swift; sourceTree = "<group>"; };
 		91FFA036204F921900EAD7B5 /* TextRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91FFA039204F921900EAD7B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +103,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9133573C2060B95100264456 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				91FFA039204F921900EAD7B5 /* AppDelegate.swift */,
+				91FFA03D204F921A00EAD7B5 /* Main.storyboard */,
+				91FFA040204F921A00EAD7B5 /* Assets.xcassets */,
+				91FFA042204F921A00EAD7B5 /* LaunchScreen.storyboard */,
+				91FFA045204F921A00EAD7B5 /* Info.plist */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
 		91C98678205634F900803EBD /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				91CB7C36205BBFB60034DE6E /* Label.swift */,
+				913357382060AEF700264456 /* Record.swift */,
+				9133573D2060D30900264456 /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,16 +195,12 @@
 			isa = PBXGroup;
 			children = (
 				91CDB0EE2058EFCD0033422F /* RequestEngine.swift */,
+				9133573A2060B93700264456 /* RealmController.swift */,
 				91CB7C38205BC1200034DE6E /* Model */,
 				91CDB0F02058EFD40033422F /* View */,
 				91CDB0F12058EFDC0033422F /* Controller */,
 				91C98678205634F900803EBD /* Supporting */,
-				91FFA039204F921900EAD7B5 /* AppDelegate.swift */,
-				91FFA03D204F921A00EAD7B5 /* Main.storyboard */,
-				91FFA040204F921A00EAD7B5 /* Assets.xcassets */,
-				91FFA042204F921A00EAD7B5 /* LaunchScreen.storyboard */,
-				91FFA045204F921A00EAD7B5 /* Info.plist */,
-				91CB7C39205BD3C70034DE6E /* LinguisticTaggerProcess.swift */,
+				9133573C2060B95100264456 /* Others */,
 			);
 			path = TextRecognition;
 			sourceTree = "<group>";
@@ -318,16 +332,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				91C98677205634F100803EBD /* Router.swift in Sources */,
-				91CB7C3A205BD3C70034DE6E /* LinguisticTaggerProcess.swift in Sources */,
 				91C98674205634F100803EBD /* Extensions.swift in Sources */,
 				914CBB5D205793CB0089E56D /* HistoryTableViewCell.swift in Sources */,
 				91C9867E205645FA00803EBD /* TabBarViewController.swift in Sources */,
+				9133573B2060B93700264456 /* RealmController.swift in Sources */,
 				91147CB9205A76EA00DC997F /* ViewController.swift in Sources */,
 				91CB7C33205BBCC90034DE6E /* ListTableViewCell.swift in Sources */,
 				91C9868020567DB400803EBD /* HistoryViewController.swift in Sources */,
 				91CDB0EF2058EFCD0033422F /* RequestEngine.swift in Sources */,
 				91C9866D205634CA00803EBD /* PageViewController.swift in Sources */,
 				91C9867C2056362000803EBD /* CheckViewController.swift in Sources */,
+				913357392060AEF700264456 /* Record.swift in Sources */,
 				91C98673205634F100803EBD /* DateExtension.swift in Sources */,
 				91147CBB205A875300DC997F /* CameraSwitch.swift in Sources */,
 				91FFA03A204F921900EAD7B5 /* AppDelegate.swift in Sources */,
@@ -335,6 +350,7 @@
 				9150F986205F6D6C00A788C1 /* Utils.swift in Sources */,
 				91CB7C37205BBFB60034DE6E /* Label.swift in Sources */,
 				91C98676205634F100803EBD /* Alert.swift in Sources */,
+				9133573E2060D30900264456 /* Profile.swift in Sources */,
 				91CB7C2F205BBC400034DE6E /* ListViewController.swift in Sources */,
 				91C9867A2056356A00803EBD /* CameraViewController.swift in Sources */,
 			);
@@ -476,7 +492,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MP6RX32GWF;
-				INFOPLIST_FILE = TextRecognition/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TextRecognition/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = text.rec.og.nition.TextRecognition;
@@ -493,7 +509,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MP6RX32GWF;
-				INFOPLIST_FILE = TextRecognition/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TextRecognition/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = text.rec.og.nition.TextRecognition;

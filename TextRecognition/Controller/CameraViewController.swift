@@ -17,7 +17,6 @@ import GoogleMaps
 protocol ViewControllerAppearance {
     func viewControllerAppeared(with index: Int)
     func changePage(to index: Int)
-    func detected(text: String)
 }
 
 enum CameraType {
@@ -34,9 +33,6 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
     
     var delegate: ViewControllerAppearance?
     var currentCameraType: CameraType = .text
-    
-    var locationManager: CLLocationManager?
-    var userLocation: CLLocation?
     
     lazy var blurView: UIView = {
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
@@ -56,7 +52,6 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
         productFocus(hide: true)
         
         setupCamera()
-        setupCoreLocation()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -87,16 +82,6 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
     @objc func cameraAppeared() {
         blurView.isHidden = true
         captureButton.isEnabled = true
-    }
-    
-    func setupCoreLocation() {
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager = CLLocationManager()
-            locationManager!.delegate = self
-            locationManager!.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager!.requestWhenInUseAuthorization()
-            locationManager!.startUpdatingLocation()
-        }
     }
     
     // MARK: - Actions
@@ -154,16 +139,14 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
                 return
             }
             
-            Alert.showAlert(vc: self, title: "Текст:", message: text, actions: [
-                UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                ])
-            self.delegate?.detected(text: text)
+            let record = RealmController.shared.create(from: text, location: Profile.current.location ?? "", photo: photo.cropped(type: .text))
+            NotificationCenter.default.post(name: .checkVC, object: nil, userInfo: ["record" : record])
+            self.goToMain(self.captureButton)
         }
     }
     
     func choosed(label: Label) {
         self.blurView.isHidden = true
-        print(label.description)
     }
     
 }
@@ -182,18 +165,14 @@ extension CameraViewController: SwiftyCamViewControllerDelegate {
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
         blurView.isHidden = false
 
-        switch currentCameraType {
+        switch self.currentCameraType {
         case .product:
-            recognizeLabel(photo: photo)
+            self.recognizeLabel(photo: photo)
             break
         case .text:
-            recognizeText(photo: photo)
+            self.recognizeText(photo: photo)
             break
         }
-        
-//        Utils.getCurrentPlace { (place) in
-//            Alert.show(text: place ?? "Место не найдено", above: self)
-//        }
     }
     
 }

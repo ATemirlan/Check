@@ -22,12 +22,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="always" text="Название продкута" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="UAX-v3-H6M">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" contentInsetAdjustmentBehavior="always" text="Название продкута" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="UAX-v3-H6M">
                                 <rect key="frame" x="12" y="312.5" width="347" height="213.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.52208914969999998" green="0.52208914969999998" blue="0.52208914969999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="O87-Lc-eFG" id="hD3-jo-kQm"/>
+                                </connections>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wFc-MS-jgS">
                                 <rect key="frame" x="16" y="127.5" width="343" height="44"/>
@@ -37,10 +40,13 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="O87-Lc-eFG" id="be7-ro-HaT"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k48-YW-Ep5">
                                 <rect key="frame" x="87" y="558" width="200" height="44"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="UDx-j0-pOS"/>
                                     <constraint firstAttribute="height" constant="44" id="pZ8-WU-yB4"/>
@@ -53,6 +59,9 @@
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveRecord:" destination="O87-Lc-eFG" eventType="touchUpInside" id="JIb-Qf-IIU"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Продукт:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjM-40-Lgf">
                                 <rect key="frame" x="16" y="281" width="343" height="23.5"/>
@@ -73,7 +82,7 @@
                                     <constraint firstAttribute="height" constant="1" id="LAH-iN-O3V"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DOA-iM-AJQ">
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DOA-iM-AJQ">
                                 <rect key="frame" x="16" y="220" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="j6O-3K-OrM"/>
@@ -81,6 +90,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="O87-Lc-eFG" id="q9K-4M-eUk"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Геопозиция:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eV-42-bFf">
                                 <rect key="frame" x="16" y="188.5" width="343" height="23.5"/>
@@ -136,6 +148,12 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="audio" id="l07-0J-bnw"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="descriptionView" destination="UAX-v3-H6M" id="ctj-Oa-Nd4"/>
+                        <outlet property="locationField" destination="DOA-iM-AJQ" id="cQ3-Wr-UVY"/>
+                        <outlet property="saveButton" destination="k48-YW-Ep5" id="Z6g-qa-FO5"/>
+                        <outlet property="valueField" destination="wFc-MS-jgS" id="hqb-8W-mn3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVV-7p-Hth" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -490,6 +508,7 @@
                         <outletCollection property="productFocus" destination="Vm4-9h-k2Y" collectionClass="NSMutableArray" id="adA-NT-ysr"/>
                         <outletCollection property="productFocus" destination="MAy-ku-i4T" collectionClass="NSMutableArray" id="eBo-H9-tsn"/>
                         <outletCollection property="productFocus" destination="TWv-pt-wLh" collectionClass="NSMutableArray" id="06H-YO-z2v"/>
+                        <segue destination="YLx-8B-DYZ" kind="show" identifier="ViewController" id="isr-hM-164"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DM1-UG-2Ob" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -522,6 +541,7 @@
                             <constraint firstItem="vvZ-fb-iS4" firstAttribute="centerY" secondItem="4cJ-4b-a5w" secondAttribute="centerY" id="LlN-NC-CWh"/>
                             <constraint firstItem="vvZ-fb-iS4" firstAttribute="centerX" secondItem="4cJ-4b-a5w" secondAttribute="centerX" id="Lyo-P8-CYc"/>
                             <constraint firstItem="bB5-7A-JkT" firstAttribute="top" secondItem="4cJ-4b-a5w" secondAttribute="top" id="P0x-bk-xX2"/>
+                            <constraint firstItem="bB5-7A-JkT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NrE-QG-qhF" secondAttribute="leading" constant="20" symbolic="YES" id="xyC-v0-Xw1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4cJ-4b-a5w"/>
                     </view>

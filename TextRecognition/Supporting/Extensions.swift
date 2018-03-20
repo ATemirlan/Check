@@ -134,3 +134,8 @@ extension UIImage {
     
 }
 
+extension Notification.Name {
+    
+    static let checkVC = Notification.Name(rawValue: "checkvc")
+    
+}

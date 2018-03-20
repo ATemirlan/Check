@@ -21,12 +21,12 @@ class RequestEngine {
     
     private init() {}
     
-    private let url = "https://vision.googleapis.com/v1/images:annotate?key=AIzaSyAGOtiQYYdxMiRf4ApqwwLb_HBZV1EH1rE"
+    private let url = "https://vision.googleapis.com/v1/images:annotate?key=AIzaSyAGQTbXN3_WtiYu97KFBzPoNgbOiPkp4-k"
     
     // MARK: - Supporting function
     
     func getContent(from image: UIImage) -> String? {
-        let imageData = UIImagePNGRepresentation(image)
+        let imageData = UIImageJPEGRepresentation(image, 1)
         let base64 = imageData?.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters)
         return base64
     }
@@ -55,7 +55,6 @@ class RequestEngine {
         Alert.spinner(show: true)
         
         request(url, method: .post, parameters: params(content: content, type: type), encoding: JSONEncoding(options: .prettyPrinted)).response { (response) in
-            
             Alert.spinner(show: false)
             
             do {

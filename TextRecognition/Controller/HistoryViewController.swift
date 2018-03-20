@@ -18,6 +18,13 @@ class HistoryViewController: UIViewController {
         tableView.register(UINib(nibName: HistoryTableViewCell.className, bundle: nil), forCellReuseIdentifier: HistoryTableViewCell.cellID)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        RealmController.shared.getRecords { (records) in
+            print(records)
+        }
+    }
+    
 }
 
 extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {

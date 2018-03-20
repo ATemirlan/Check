@@ -207,6 +207,35 @@
             </objects>
             <point key="canvasLocation" x="2644" y="565"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="Jgh-F8-Nkt">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oEa-Oc-Bgw" customClass="DetailViewController" customModule="TextRecognition" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="R3t-Dt-IAd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ntj-Gs-76S">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ggC-OF-35p" firstAttribute="bottom" secondItem="ntj-Gs-76S" secondAttribute="bottom" id="KtE-mS-S8L"/>
+                            <constraint firstItem="ntj-Gs-76S" firstAttribute="top" secondItem="ggC-OF-35p" secondAttribute="top" id="SfE-lU-gP4"/>
+                            <constraint firstItem="ntj-Gs-76S" firstAttribute="leading" secondItem="ggC-OF-35p" secondAttribute="leading" id="aqQ-iA-GXT"/>
+                            <constraint firstItem="ggC-OF-35p" firstAttribute="trailing" secondItem="ntj-Gs-76S" secondAttribute="trailing" id="sNd-KF-ufB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ggC-OF-35p"/>
+                    </view>
+                    <connections>
+                        <outlet property="imgView" destination="ntj-Gs-76S" id="Dn1-sC-Gyx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tTx-V1-2xY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3442" y="564"/>
+        </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Ztq-Zw-kCa">
             <objects>

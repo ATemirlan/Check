@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class HistoryViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    var records: Results<Record>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,31 +23,47 @@ class HistoryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         RealmController.shared.getRecords { (records) in
-            print(records)
+            self.records = records
+            self.tableView.reloadData()
         }
     }
     
 }
 
-extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
+extension HistoryViewController: UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return records?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.cellID) as! HistoryTableViewCell
+        guard let record = records?[indexPath.row] else {
+            return UITableViewCell()
+        }
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.cellID) as! HistoryTableViewCell
+        cell.setup(with: record)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? HistoryTableViewCell else {
+            return
+        }
         
+        DispatchQueue.main.async {
+            Router.showPopover(above: self, cell)
+        }
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

@@ -14,6 +14,8 @@ import IQKeyboardManagerSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let key = "AIzaSyAGQTbXN3_WtiYu97KFBzPoNgbOiPkp4-k"
+    
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -28,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupGooglePlaces() {
-        let key = "AIzaSyAGQTbXN3_WtiYu97KFBzPoNgbOiPkp4-k"
         GMSPlacesClient.provideAPIKey(key)
         GMSServices.provideAPIKey(key)
     }
@@ -36,7 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupKeyboard() {
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
-        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+//        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+        
+        IQKeyboardManager.sharedManager().toolbarTintColor = .black
+        IQKeyboardManager.sharedManager().toolbarBarTintColor = .white
     }
     
     func updateLocation() {

@@ -116,20 +116,6 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
         let _ = productFocus.map { $0.isHidden = hide }
     }
     
-    func recognizeLabel(photo: UIImage) {
-        RequestEngine.shared.recognizeLabel(image: photo.cropped(type: .product)) { (labels, error) in
-            guard let labels = labels, error == nil else {
-                self.blurView.isHidden = true
-                Alert.showError(textError: error ?? "Что-то пошло не так", above: self)
-                return
-            }
-            
-            let listVC = Router.listVC(above: self)
-            listVC.labels = labels
-            self.present(listVC, animated: true, completion: nil)
-        }
-    }
-    
     func recognizeText(photo: UIImage) {
         RequestEngine.shared.recognizeText(image: photo.cropped(type: .text)) { (text, error) in
             self.blurView.isHidden = true
@@ -145,8 +131,26 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
         }
     }
     
-    func choosed(label: Label) {
+    func recognizeLabel(photo: UIImage) {
+        RequestEngine.shared.recognizeLabel(image: photo.cropped(type: .product)) { (labels, error) in
+            guard let labels = labels, error == nil else {
+                self.blurView.isHidden = true
+                Alert.showError(textError: error ?? "Что-то пошло не так", above: self)
+                return
+            }
+            
+            let listVC = Router.listVC(above: self)
+            listVC.labels = labels
+            listVC.photo = photo.cropped(type: .product)
+            self.present(listVC, animated: true, completion: nil)
+        }
+    }
+    
+    func choosed(label: Label, photo: UIImage) {
         self.blurView.isHidden = true
+        let record = RealmController.shared.create(from: label.description, location: Profile.current.location ?? "", photo: photo)
+        NotificationCenter.default.post(name: .checkVC, object: nil, userInfo: ["record" : record])
+        self.goToMain(self.captureButton)
     }
     
 }
@@ -176,4 +180,3 @@ extension CameraViewController: SwiftyCamViewControllerDelegate {
     }
     
 }
-

@@ -30,9 +30,13 @@ class CheckViewController: UIViewController {
     @objc func recordRecieved(_ notification: NSNotification) {
         if let r = notification.userInfo?["record"] as? Record {
             record = r
-            valueField.text = record?.value
-            locationField.text = record?.location
-            descriptionView.text = record?.title
+            valueField.text = record?.value ?? ""
+            locationField.text = record?.location ?? ""
+            descriptionView.text = record?.title ?? ""
+            
+            if record?.title == "" { descriptionView.becomeFirstResponder() }
+            if record?.location == "" { locationField.becomeFirstResponder() }
+            if record?.value == "" { valueField.becomeFirstResponder() }
         }
         
         checkIfRecordCanBeSaved()

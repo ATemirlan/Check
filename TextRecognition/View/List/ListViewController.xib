@@ -39,11 +39,25 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUR-IA-hv8">
+                                    <rect key="frame" x="295" y="2" width="40" height="36"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="inH-Eh-cBD"/>
+                                    </constraints>
+                                    <state key="normal" image="close"/>
+                                    <connections>
+                                        <action selector="close:" destination="-1" eventType="touchUpInside" id="Nxu-2H-gfG"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.92941176469999998" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="hUR-IA-hv8" secondAttribute="trailing" constant="8" id="1qZ-wr-YXt"/>
+                                <constraint firstItem="hUR-IA-hv8" firstAttribute="top" secondItem="OLB-MT-gKm" secondAttribute="top" constant="2" id="Cu9-0f-FbP"/>
                                 <constraint firstItem="7UX-VS-DvJ" firstAttribute="leading" secondItem="OLB-MT-gKm" secondAttribute="leading" constant="14" id="GVI-wJ-2qd"/>
+                                <constraint firstItem="hUR-IA-hv8" firstAttribute="centerY" secondItem="OLB-MT-gKm" secondAttribute="centerY" id="glr-WZ-Irj"/>
                                 <constraint firstAttribute="height" constant="40" id="gsg-FU-od7"/>
+                                <constraint firstAttribute="bottom" secondItem="hUR-IA-hv8" secondAttribute="bottom" constant="2" id="h6x-MW-qp1"/>
                                 <constraint firstAttribute="bottom" secondItem="7UX-VS-DvJ" secondAttribute="bottom" constant="8" id="m2G-9n-kaq"/>
                             </constraints>
                         </view>
@@ -90,4 +104,7 @@
             <point key="canvasLocation" x="24.5" y="52.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="close" width="22" height="22"/>
+    </resources>
 </document>

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ListTableViewProtocol {
-    func choosed(label: Label)
+    func choosed(label: Label, photo: UIImage)
 }
 
 class ListViewController: UIViewController {
@@ -23,6 +23,7 @@ class ListViewController: UIViewController {
     var delegate: ListTableViewProtocol?
     
     var labels: [Label]!
+    var photo: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +68,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         dismiss(animated: true) { 
-            self.delegate?.choosed(label: self.labels[indexPath.row])
+            self.delegate?.choosed(label: self.labels[indexPath.row], photo: self.photo)
         }
     }
     

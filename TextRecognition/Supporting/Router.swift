@@ -27,6 +27,24 @@ class Router {
         return getViewController(with: TabBarViewController.className) as! TabBarViewController
     }
     
+    static func showPopover(above vc: UIViewController, _ cell: HistoryTableViewCell) {
+        let popController = getViewController(with: DetailViewController.className) as! DetailViewController
+        popController.modalPresentationStyle = UIModalPresentationStyle.popover
+        popController.popoverPresentationController?.permittedArrowDirections = .any
+        popController.popoverPresentationController?.delegate = vc as? UIPopoverPresentationControllerDelegate
+        popController.popoverPresentationController?.sourceView = cell.contentView
+        popController.popoverPresentationController?.sourceRect = cell.bounds
+        popController.record = cell.record
+        
+        if let record = cell.record, let img = UIImage(data: record.imgData) {
+            print(img.size.width * 0.41)
+            print(img.size.height * 0.41)
+            popController.preferredContentSize = CGSize(width: img.size.width * 0.41, height: img.size.height * 0.41)
+        }
+        
+        vc.present(popController, animated: true, completion: nil)
+    }
+    
     static func setPaging(enabled: Bool) {
         guard let pageVC = UIApplication.shared.keyWindow?.rootViewController else {
             return

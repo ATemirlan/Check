@@ -21,7 +21,7 @@ class RequestEngine {
     
     private init() {}
     
-    private let url = "https://vision.googleapis.com/v1/images:annotate?key=AIzaSyAGQTbXN3_WtiYu97KFBzPoNgbOiPkp4-k"
+    private let url = "https://vision.googleapis.com/v1/images:annotate?key=\((UIApplication.shared.delegate as! AppDelegate).key)"
     
     // MARK: - Supporting function
     

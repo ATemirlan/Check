@@ -13,6 +13,7 @@
 		913357392060AEF700264456 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913357382060AEF700264456 /* Record.swift */; };
 		9133573B2060B93700264456 /* RealmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133573A2060B93700264456 /* RealmController.swift */; };
 		9133573E2060D30900264456 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133573D2060D30900264456 /* Profile.swift */; };
+		913357402060D9CA00264456 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133573F2060D9CA00264456 /* DetailViewController.swift */; };
 		914CBB5D205793CB0089E56D /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914CBB5B205793CB0089E56D /* HistoryTableViewCell.swift */; };
 		914CBB5E205793CB0089E56D /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 914CBB5C205793CB0089E56D /* HistoryTableViewCell.xib */; };
 		9150F986205F6D6C00A788C1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9150F985205F6D6C00A788C1 /* Utils.swift */; };
@@ -44,6 +45,7 @@
 		913357382060AEF700264456 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		9133573A2060B93700264456 /* RealmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmController.swift; sourceTree = "<group>"; };
 		9133573D2060D30900264456 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		9133573F2060D9CA00264456 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		914CBB5B205793CB0089E56D /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		914CBB5C205793CB0089E56D /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		9150F985205F6D6C00A788C1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				91C9867D205645FA00803EBD /* TabBarViewController.swift */,
 				91C9867B2056362000803EBD /* CheckViewController.swift */,
 				91C9867F20567DB400803EBD /* HistoryViewController.swift */,
+				9133573F2060D9CA00264456 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			files = (
 				91C98677205634F100803EBD /* Router.swift in Sources */,
 				91C98674205634F100803EBD /* Extensions.swift in Sources */,
+				913357402060D9CA00264456 /* DetailViewController.swift in Sources */,
 				914CBB5D205793CB0089E56D /* HistoryTableViewCell.swift in Sources */,
 				91C9867E205645FA00803EBD /* TabBarViewController.swift in Sources */,
 				9133573B2060B93700264456 /* RealmController.swift in Sources */,

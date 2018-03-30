@@ -18,6 +18,7 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate {
         
         setup()
         disableBounces()
+        view.isMultipleTouchEnabled = false
     }
     
     func setup() {
@@ -88,9 +89,5 @@ extension PageViewController: UIPageViewControllerDataSource, UIPageViewControll
             }
         }
     }
-    
-    func detected(text: String) {
-        
-    }
-    
+
 }

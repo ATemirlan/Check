@@ -25,11 +25,17 @@ enum CameraType {
 
 class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLocationManagerDelegate {
     
-    @IBOutlet var textFocus: [UIView]!
-    @IBOutlet var productFocus: [UIView]!
-    
     @IBOutlet weak var captureButton: UIButton!
     @IBOutlet var switchButtons: [CameraSwitch]!
+    
+    @IBOutlet weak var titleView: UIView!
+    @IBOutlet weak var valueView: UIView!
+    
+    @IBOutlet weak var width: NSLayoutConstraint!
+    @IBOutlet weak var height: NSLayoutConstraint!
+    
+    var pan: UIPanGestureRecognizer!
+    var pinch: UIPinchGestureRecognizer!
     
     var delegate: ViewControllerAppearance?
     var currentCameraType: CameraType = .text
@@ -44,14 +50,9 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupCamera()
         view.addSubview(blurView)
         blurView.isHidden = true
-        
-        textFocus(hide: false)
-        productFocus(hide: true)
-        
-        setupCamera()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,7 +74,6 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         DispatchQueue.main.async {
             UIApplication.shared.keyWindow?.windowLevel = UIWindowLevelNormal
         }
@@ -97,23 +97,11 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
     @IBAction func cameraTypeChanged(_ sender: CameraSwitch) {
         unselectAll()
         sender.set(selected: true)
-        
-        textFocus(hide: sender.tag == 1)
-        productFocus(hide: sender.tag == 0)
-        
         currentCameraType = sender.tag == 0 ? .text : .product
     }
     
     func unselectAll() {
         let _ = switchButtons.map { $0.set(selected: false) }
-    }
-
-    func textFocus(hide: Bool) {
-        let _ = textFocus.map { $0.isHidden = hide }
-    }
-    
-    func productFocus(hide: Bool) {
-        let _ = productFocus.map { $0.isHidden = hide }
     }
     
     func recognizeText(photo: UIImage) {
@@ -126,9 +114,15 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
             }
             
             let record = RealmController.shared.create(from: text, location: Profile.current.location ?? "", photo: photo.cropped(type: .text))
-            NotificationCenter.default.post(name: .checkVC, object: nil, userInfo: ["record" : record])
             self.goToMain(self.captureButton)
+            
+            self.perform(#selector(self.sendNotification(record:)), with: record, afterDelay: 1.0)
+            
         }
+    }
+    
+    @objc func sendNotification(record: Record) {
+        NotificationCenter.default.post(name: .checkVC, object: nil, userInfo: ["record" : record])
     }
     
     func recognizeLabel(photo: UIImage) {
@@ -151,6 +145,10 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
         let record = RealmController.shared.create(from: label.description, location: Profile.current.location ?? "", photo: photo)
         NotificationCenter.default.post(name: .checkVC, object: nil, userInfo: ["record" : record])
         self.goToMain(self.captureButton)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return false
     }
     
 }
@@ -176,6 +174,34 @@ extension CameraViewController: SwiftyCamViewControllerDelegate {
         case .text:
             self.recognizeText(photo: photo)
             break
+        }
+    }
+    
+}
+
+// MARK: - Gestures
+
+extension CameraViewController {
+    
+    @IBAction func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
+        let selection = UISelectionFeedbackGenerator()
+        
+        if gesture.state == .began {
+            selection.selectionChanged()
+        } else if gesture.state == .changed {
+            guard let view = gesture.view else {
+                return
+            }
+            let location = gesture.location(in: self.view)
+            view.center = CGPoint(x:view.center.x + (location.x - view.center.x),
+                                  y:view.center.y + (location.y - view.center.y))
+        }
+    }
+    
+    @IBAction func handlePinch(_ sender: UIPinchGestureRecognizer) {
+        if let view = sender.view {
+            view.transform = view.transform.scaledBy(x: sender.scale, y: sender.scale)
+            sender.scale = 1
         }
     }
     

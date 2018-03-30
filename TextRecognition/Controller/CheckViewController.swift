@@ -24,6 +24,7 @@ class CheckViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationField.text = Profile.current.location ?? ""
         NotificationCenter.default.addObserver(self, selector: #selector(recordRecieved(_:)), name: .checkVC, object: nil)
     }
     

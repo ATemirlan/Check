@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupCoreLocation()
         return true
     }
+
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         updateLocation()

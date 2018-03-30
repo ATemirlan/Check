@@ -70,6 +70,7 @@ class RequestEngine {
         annotate(image: image, type: .text) { (json, error) in
             if let json = json {
                 let text = json["responses"][0]["fullTextAnnotation"]["text"].string
+                print(text)
                 completion(text, text == nil ? "Текст не найден" : nil)
             } else {
                 completion(nil, error)

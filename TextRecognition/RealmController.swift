@@ -37,8 +37,17 @@ class RealmController {
     
     func create(from text: String, location: String, photo: UIImage) -> Record {
         let record = Record()
-        record.value = String(describing: Utils.componented(string: text).value)
-        record.title = Utils.componented(string: text).description
+        
+        var components = text.components(separatedBy: "\n")
+        components = components.filter { $0 != "" }
+        print(components)
+        record.value = components.last ?? ""
+//        record.value = String(describing: Utils.componented(string: text).value)
+        components.removeLast()
+        var title = ""
+        let _ = components.map { title += $0 }
+        print(title)
+        record.title = title
         record.location = location
         record.imgData = UIImageJPEGRepresentation(photo, 0.7)!
         return record

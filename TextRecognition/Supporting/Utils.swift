@@ -11,6 +11,21 @@ import GooglePlaces
 
 class Utils {
     
+    class func mergedPhoto(from photo1: UIImage, photo2: UIImage) -> UIImage {
+        let size = CGSize(width: photo1.size.width > photo2.size.width ? photo1.size.width : photo2.size.width,
+                          height: photo1.size.height + photo2.size.height)
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        
+        photo1.draw(in: CGRect(x: 0, y: 0, width: photo1.size.width, height: photo1.size.height))
+        photo2.draw(in: CGRect(x: 0, y: photo1.size.height, width:photo2.size.width, height: photo2.size.height))
+        
+        let mergedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return mergedImage
+    }
+    
     class func componented(string: String) -> (description: String, value: Double?) {
         var str = string.filter { $0 != "\n" || $0 != "\t" }
         str = str.condensingWhitespace()

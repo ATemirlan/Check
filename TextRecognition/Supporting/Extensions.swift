@@ -102,38 +102,6 @@ extension NSObject {
     }
 }
 
-extension UIImage {
-    
-    func cropped(type: CameraType) -> UIImage {
-        guard let window = UIApplication.shared.keyWindow else {
-            return self
-        }
-        
-        let imageW = self.size.width
-        let imageH = self.size.height
-        
-        let screenW = window.frame.size.width
-        let screenH = window.frame.size.height
-        
-        let height: CGFloat = type == .text ? 160.0 : 240.0
-        
-//        var rect = CGRect(x: imageW * 16.0 / screenW,
-//                          y: imageH / 2.0 - (imageH * 160.0 / screenH) / 2.0,
-//                          width: imageW * (screenW - 32.0) / screenW,
-//                          height: imageH * 160.0 / screenH)
-        
-        let rect = CGRect(x: imageH / 2.0 - (imageH * height / screenH) / 2.0,
-                          y: imageW * 16.0 / screenW,
-                          width: imageH * height / screenH,
-                          height: imageW * (screenW - 32.0) / screenW)
-        
-        let imageRef = self.cgImage!.cropping(to: rect)
-        let image = UIImage(cgImage: imageRef!, scale: UIScreen.main.scale, orientation: self.imageOrientation)
-        return image
-    }
-    
-}
-
 extension Notification.Name {
     
     static let checkVC = Notification.Name(rawValue: "checkvc")

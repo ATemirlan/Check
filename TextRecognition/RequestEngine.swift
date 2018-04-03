@@ -55,6 +55,7 @@ class RequestEngine {
         Alert.spinner(show: true)
         
         request(url, method: .post, parameters: params(content: content, type: type), encoding: JSONEncoding(options: .prettyPrinted)).response { (response) in
+            print(response)
             Alert.spinner(show: false)
             
             do {
@@ -70,10 +71,9 @@ class RequestEngine {
         annotate(image: image, type: .text) { (json, error) in
             if let json = json {
                 let text = json["responses"][0]["fullTextAnnotation"]["text"].string
-                print(text)
                 completion(text, text == nil ? "Текст не найден" : nil)
             } else {
-                completion(nil, error)
+                completion(nil, error ?? Constants.Errors.unknownError)
             }
         }
     }
@@ -86,19 +86,7 @@ class RequestEngine {
                 let _ = labels.map { result.append(Label(json: $0)) }
                 completion(result, result.count == 0 ? "Не удалось распознать предмет" : nil)
             } else {
-                completion(nil, error)
-            }
-        }
-    }
-    
-    func recognizeLogo(image: UIImage, completion: @escaping (_ text: String?, _ error: String?) -> Void) {
-        annotate(image: image, type: .logo) { (json, error) in
-            if let json = json {
-                print(json)
-                let text = json["responses"][0]["logoAnnotations"][0]["description"].string
-                completion(text, text == nil ? "Не удалось распознать предмет" : nil)
-            } else {
-                completion(nil, error)
+                completion(nil, error ?? Constants.Errors.unknownError)
             }
         }
     }

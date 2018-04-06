@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class PageViewController: UIPageViewController, UIScrollViewDelegate {
 

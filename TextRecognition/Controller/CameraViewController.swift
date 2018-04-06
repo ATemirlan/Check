@@ -28,6 +28,8 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
     @IBOutlet weak var captureButton: UIButton!
     @IBOutlet var switchButtons: [CameraSwitch]!
     
+    var locationManager: CLLocationManager!
+    
     var opaqTitle: OpaqTitleView!
     var opaqValue: OpaqValueView!
     
@@ -47,6 +49,7 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
         setupCamera()
         setupOpaqValueView()
         setupOpaqTitleView()
+        setupCoreLocation()
         
         view.addSubview(blurView)
         blurView.isHidden = true
@@ -59,6 +62,7 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
             UIApplication.shared.keyWindow?.windowLevel = UIWindowLevelStatusBar + 1
         }
         
+        updateLocation()
         delegate?.viewControllerAppeared(with: 0)
         perform(#selector (cameraAppeared), with: nil, afterDelay: 0.4)
     }
@@ -76,6 +80,21 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
         }
     }
     
+    func setupCoreLocation() {
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager = CLLocationManager()
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func updateLocation() {
+        Utils.getCurrentPlace { (place) in
+            Profile.current.location = place
+        }
+    }
+    
     @objc func cameraAppeared() {
         blurView.isHidden = true
         captureButton.isEnabled = true
@@ -83,22 +102,26 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
     
     func setupOpaqTitleView() {
         let longPan = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        longPan.minimumPressDuration = 0.2
         let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(_:)))
         opaqTitle = OpaqTitleView.instanceFromNib()
         opaqTitle.tag = 101
         opaqTitle.addGestureRecognizer(longPan)
         opaqTitle.addGestureRecognizer(pinch)
         view.addSubview(opaqTitle)
+        view.bringSubview(toFront: blurView)
     }
     
     func setupOpaqValueView() {
         let longPan = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        longPan.minimumPressDuration = 0.2
         let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(_:)))
         opaqValue = OpaqValueView.instanceFromNib()
         opaqValue.tag = 102
         opaqValue.addGestureRecognizer(longPan)
         opaqValue.addGestureRecognizer(pinch)
         view.addSubview(opaqValue)
+        view.bringSubview(toFront: blurView)
     }
     
     // MARK: - Actions
@@ -254,10 +277,8 @@ extension CameraViewController {
     }
     
     func checkSize(of view: UIView) {
-        if view.tag == 101, view.frame.width > Constants.CameraFrame.width {
-            view.frame.size = CGSize(width: Constants.CameraFrame.width, height: 110.0)
-        } else if view.tag == 102, view.frame.width > Constants.CameraFrame.width / 2.0 {
-            view.frame.size = CGSize(width: Constants.CameraFrame.width / 2.0, height: 110.0)
+        if view.frame.width > Constants.CameraFrame.width {
+            view.frame.size = CGSize(width: Constants.CameraFrame.width, height: 100.0)
         }
             
     }

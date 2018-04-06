@@ -43,7 +43,7 @@ class OpaqValueView: UIView, OpaqView {
             let h = UserDefaults.standard.float(forKey: opaqValueH)
             
             guard w != 0, h != 0 else {
-                return CGSize(width: 160.0, height: 80.0)
+                return CGSize(width: 160.0, height: 50.0)
             }
             
             return CGSize(width: CGFloat(w), height: CGFloat(h))

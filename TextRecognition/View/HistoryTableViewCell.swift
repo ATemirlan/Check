@@ -24,7 +24,7 @@ class HistoryTableViewCell: UITableViewCell {
         self.record = record
         titleLabel.text = record.title
         locationLabel.text = record.location
-        valueLabel.text = record.value
+        valueLabel.text = record.value.formattedNumber()
     }
     
 }

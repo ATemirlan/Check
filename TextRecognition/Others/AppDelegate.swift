@@ -21,13 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         setupGooglePlaces()
         setupKeyboard()
-        setupCoreLocation()
+        
         return true
     }
 
-    
     func applicationDidBecomeActive(_ application: UIApplication) {
-        updateLocation()
+        
     }
     
     func setupGooglePlaces() {
@@ -42,21 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.sharedManager().toolbarTintColor = .black
         IQKeyboardManager.sharedManager().toolbarBarTintColor = .white
-    }
-    
-    func updateLocation() {
-        Utils.getCurrentPlace { (place) in
-            Profile.current.location = place
-        }
-    }
-    
-    func setupCoreLocation() {
-        if CLLocationManager.locationServicesEnabled() {
-            let locationManager = CLLocationManager()
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.startUpdatingLocation()
-        }
     }
     
 }

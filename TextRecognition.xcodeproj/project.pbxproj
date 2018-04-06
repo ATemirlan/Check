@@ -20,6 +20,9 @@
 		914CBB5D205793CB0089E56D /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914CBB5B205793CB0089E56D /* HistoryTableViewCell.swift */; };
 		914CBB5E205793CB0089E56D /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 914CBB5C205793CB0089E56D /* HistoryTableViewCell.xib */; };
 		9150F986205F6D6C00A788C1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9150F985205F6D6C00A788C1 /* Utils.swift */; };
+		91C04F1B2077268800DDE2A6 /* SaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C04F1A2077268800DDE2A6 /* SaveButton.swift */; };
+		91C04F1D207768F700DDE2A6 /* FiltrTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C04F1C207768F700DDE2A6 /* FiltrTableViewController.swift */; };
+		91C04F1F20776CCC00DDE2A6 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C04F1E20776CCC00DDE2A6 /* DatePickerViewController.swift */; };
 		91C9866D205634CA00803EBD /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C9866C205634CA00803EBD /* PageViewController.swift */; };
 		91C98673205634F100803EBD /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C9866E205634F000803EBD /* DateExtension.swift */; };
 		91C98674205634F100803EBD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C9866F205634F000803EBD /* Extensions.swift */; };
@@ -57,6 +60,9 @@
 		914CBB5B205793CB0089E56D /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		914CBB5C205793CB0089E56D /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		9150F985205F6D6C00A788C1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		91C04F1A2077268800DDE2A6 /* SaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButton.swift; sourceTree = "<group>"; };
+		91C04F1C207768F700DDE2A6 /* FiltrTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltrTableViewController.swift; sourceTree = "<group>"; };
+		91C04F1E20776CCC00DDE2A6 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		91C9866C205634CA00803EBD /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		91C9866E205634F000803EBD /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		91C9866F205634F000803EBD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 			children = (
 				914CBB5B205793CB0089E56D /* HistoryTableViewCell.swift */,
 				914CBB5C205793CB0089E56D /* HistoryTableViewCell.xib */,
+				91C04F1A2077268800DDE2A6 /* SaveButton.swift */,
 				91147CBA205A875300DC997F /* CameraSwitch.swift */,
 				91CB7C35205BBD070034DE6E /* List */,
 				91D21E5320722F1700AB4F10 /* OpaqViews */,
@@ -182,7 +189,9 @@
 				91C9867D205645FA00803EBD /* TabBarViewController.swift */,
 				91C9867B2056362000803EBD /* CheckViewController.swift */,
 				91C9867F20567DB400803EBD /* HistoryViewController.swift */,
+				91C04F1C207768F700DDE2A6 /* FiltrTableViewController.swift */,
 				9133573F2060D9CA00264456 /* DetailViewController.swift */,
+				91C04F1E20776CCC00DDE2A6 /* DatePickerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -366,12 +375,14 @@
 				91C9867E205645FA00803EBD /* TabBarViewController.swift in Sources */,
 				9133573B2060B93700264456 /* RealmController.swift in Sources */,
 				91147CB9205A76EA00DC997F /* ViewController.swift in Sources */,
+				91C04F1F20776CCC00DDE2A6 /* DatePickerViewController.swift in Sources */,
 				91CB7C33205BBCC90034DE6E /* ListTableViewCell.swift in Sources */,
 				91C9868020567DB400803EBD /* HistoryViewController.swift in Sources */,
 				913F992A207385CB000ADFAC /* UIImageExtension.swift in Sources */,
 				91CDB0EF2058EFCD0033422F /* RequestEngine.swift in Sources */,
 				91C9866D205634CA00803EBD /* PageViewController.swift in Sources */,
 				91C9867C2056362000803EBD /* CheckViewController.swift in Sources */,
+				91C04F1D207768F700DDE2A6 /* FiltrTableViewController.swift in Sources */,
 				913357392060AEF700264456 /* Record.swift in Sources */,
 				91C98673205634F100803EBD /* DateExtension.swift in Sources */,
 				91147CBB205A875300DC997F /* CameraSwitch.swift in Sources */,
@@ -382,6 +393,7 @@
 				91CB7C37205BBFB60034DE6E /* Label.swift in Sources */,
 				91C98676205634F100803EBD /* Alert.swift in Sources */,
 				9133573E2060D30900264456 /* Profile.swift in Sources */,
+				91C04F1B2077268800DDE2A6 /* SaveButton.swift in Sources */,
 				911D680A2071E18500FBBCEA /* OpaqTitleView.swift in Sources */,
 				91CB7C2F205BBC400034DE6E /* ListViewController.swift in Sources */,
 				91C9867A2056356A00803EBD /* CameraViewController.swift in Sources */,

@@ -16,8 +16,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сумма" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGs-uU-4a2">
-                    <rect key="frame" x="66.5" y="8" width="40.5" height="14.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <rect key="frame" x="68" y="4" width="37.5" height="13.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -32,8 +32,9 @@
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="qGs-uU-4a2" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="6bl-R6-awm"/>
-                <constraint firstItem="qGs-uU-4a2" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="FyV-7D-BG7"/>
+                <constraint firstItem="qGs-uU-4a2" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="4" id="FyV-7D-BG7"/>
                 <constraint firstItem="bx4-ZO-xa4" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" constant="4" id="SA8-J2-v89"/>
+                <constraint firstItem="bx4-ZO-xa4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qGs-uU-4a2" secondAttribute="bottom" priority="999" id="xCB-Uh-7o8"/>
                 <constraint firstItem="bx4-ZO-xa4" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="xNI-z2-Th2"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

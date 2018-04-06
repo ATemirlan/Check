@@ -37,8 +37,6 @@ class Router {
         popController.record = cell.record
         
         if let record = cell.record, let img = UIImage(data: record.imgData) {
-            print(img.size.width * 0.41)
-            print(img.size.height * 0.41)
             popController.preferredContentSize = CGSize(width: img.size.width * 0.41, height: img.size.height * 0.41)
         }
         

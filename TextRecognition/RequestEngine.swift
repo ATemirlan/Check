@@ -55,7 +55,6 @@ class RequestEngine {
         Alert.spinner(show: true)
         
         request(url, method: .post, parameters: params(content: content, type: type), encoding: JSONEncoding(options: .prettyPrinted)).response { (response) in
-            print(response)
             Alert.spinner(show: false)
             
             do {

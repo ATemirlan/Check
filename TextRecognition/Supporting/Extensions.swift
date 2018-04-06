@@ -19,7 +19,6 @@ extension UIViewController {
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
         tabBarController?.navigationItem.backBarButtonItem = backItem
-        navigationController?.navigationBar.tintColor = .red
         navigationController?.navigationBar.isTranslucent = true
     }
     
@@ -135,4 +134,21 @@ extension String {
             .joined(separator: " ")
     }
 
+}
+
+extension Float {
+    
+    func formattedNumber() -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.decimalSeparator = "."
+        formatter.minimumFractionDigits = 1
+        
+        if let formattedNumber = formatter.string(from: NSNumber(value: self)) {
+            return formattedNumber
+        }
+        
+        return "\(self)"
+    }
+    
 }

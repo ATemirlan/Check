@@ -36,8 +36,9 @@ class Router {
         popController.popoverPresentationController?.sourceRect = cell.bounds
         popController.record = cell.record
         
-        if let record = cell.record, let img = UIImage(data: record.imgData) {
-            popController.preferredContentSize = CGSize(width: img.size.width * 0.41, height: img.size.height * 0.41)
+        if let record = cell.record, let _ = UIImage(data: record.imgData) {
+            let size = CGSize(width: Constants.CameraFrame.width * 0.8, height: Constants.CameraFrame.height * 0.8)
+            popController.preferredContentSize = size
         }
         
         vc.present(popController, animated: true, completion: nil)
@@ -55,7 +56,7 @@ class Router {
         }
     }
     
-    private static func getViewController(with id: String) -> UIViewController {
+    static func getViewController(with id: String) -> UIViewController {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: id)
     }

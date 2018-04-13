@@ -80,6 +80,10 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
         }
     }
     
+    func showTutorial() {
+        
+    }
+    
     func setupCoreLocation() {
         if CLLocationManager.locationServicesEnabled() {
             locationManager = CLLocationManager()
@@ -102,9 +106,11 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
     
     func setupOpaqTitleView() {
         let longPan = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
-        longPan.minimumPressDuration = 0.2
+        longPan.minimumPressDuration = 0.1
+        longPan.numberOfTouchesRequired = 1
         let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(_:)))
         opaqTitle = OpaqTitleView.instanceFromNib()
+        opaqTitle.backgroundColor = opaqTitle.backgroundColor?.withAlphaComponent(0.3)
         opaqTitle.tag = 101
         opaqTitle.addGestureRecognizer(longPan)
         opaqTitle.addGestureRecognizer(pinch)
@@ -114,9 +120,10 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
     
     func setupOpaqValueView() {
         let longPan = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
-        longPan.minimumPressDuration = 0.2
+        longPan.minimumPressDuration = 0.1
         let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(_:)))
         opaqValue = OpaqValueView.instanceFromNib()
+        opaqValue.backgroundColor = opaqValue.backgroundColor?.withAlphaComponent(0.3)
         opaqValue.tag = 102
         opaqValue.addGestureRecognizer(longPan)
         opaqValue.addGestureRecognizer(pinch)
@@ -152,8 +159,8 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! ViewController
-        vc.img = sender as! UIImage
+//        let vc = segue.destination as! ViewController
+//        vc.img = sender as! UIImage
     }
     
     func recognizeText(photo: UIImage) {
@@ -172,7 +179,7 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
             
             let record = RealmController.shared.create(from: text, location: Profile.current.location ?? "", photo: photoToSave)
             self.goToMain(self.captureButton)
-            self.perform(#selector(self.sendNotification(record:)), with: record, afterDelay: 1.0)
+            self.perform(#selector(self.sendNotification(record:)), with: record, afterDelay: 0.8)
         }
     }
     
@@ -199,8 +206,8 @@ class CameraViewController: SwiftyCamViewController, ListTableViewProtocol, CLLo
     func choosed(label: Label, photo: UIImage) {
         self.blurView.isHidden = true
         let record = RealmController.shared.create(from: label.description, location: Profile.current.location ?? "", photo: photo)
-        NotificationCenter.default.post(name: .checkVC, object: nil, userInfo: ["record" : record])
         self.goToMain(self.captureButton)
+        self.perform(#selector(self.sendNotification(record:)), with: record, afterDelay: 0.8)
     }
     
 }

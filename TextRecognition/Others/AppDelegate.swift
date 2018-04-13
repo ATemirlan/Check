@@ -24,10 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        
-    }
     
     func setupGooglePlaces() {
         GMSPlacesClient.provideAPIKey(key)
@@ -41,6 +37,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.sharedManager().toolbarTintColor = .black
         IQKeyboardManager.sharedManager().toolbarBarTintColor = .white
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        tryShowCameraBlur(hide: true)
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        tryShowCameraBlur(hide: false)
+    }
+    
+    @objc func tryShowCameraBlur(hide: Bool) {
+        guard let pageVC = window?.rootViewController as? PageViewController else {
+            return
+        }
+        
+        guard let cameraVC = pageVC.viewControllers?[0] as? CameraViewController else {
+            return
+        }
+        
+        cameraVC.blurView.isHidden = !hide
     }
     
 }

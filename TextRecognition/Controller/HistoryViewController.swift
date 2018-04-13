@@ -36,22 +36,48 @@ class HistoryViewController: UIViewController, DatePickerDelegate {
         RealmController.shared.getRecords { (records) in
             self.records = records
             
-            if let records = records {
-                self.createSections(from: records, at: self.specialDate)
-                self.tableView.reloadData()
+            self.createSections(from: records)
+            self.tableView.reloadData()
+
+            self.showEmptyRecords(show: self.sections.keys.count == 0)
+        }
+    }
+    
+    func showEmptyRecords(show: Bool) {
+        if show {
+            let label = UILabel(frame: CGRect(x: 16.0, y: 184.0, width: view.frame.size.width - 32.0, height: 84.0))
+            label.text = "Записи не найдены"
+            label.textAlignment = .center
+            label.tag = 23
+            label.font = UIFont(name: "AvenirNext-Regular", size: 20.0)
+            view.addSubview(label)
+        } else {
+            for v in view.subviews {
+                if v.tag == 23 {
+                    v.removeFromSuperview()
+                }
             }
         }
     }
     
-    func createSections(from records: Results<Record>, at date: Date? = nil) {
+    func createSections(from records: Results<Record>?, at date: Date? = nil) {
+        guard let records = records else {
+            sections = [Int : [Record]]()
+            return
+        }
+        
         var keys = Set(records.map {
             $0.date.toString()
         }).sorted {
             return $0.compare($1) == ComparisonResult.orderedDescending
         }
         
-        if let date = date, keys.contains(date.toString()) {
-            keys = [date.toString()]
+        if let date = date {
+            if keys.contains(date.toString()) {
+                keys = [date.toString()]
+            } else {
+                keys = [String]()
+            }
         }
         
         guard keys.count > 0 else {
@@ -86,15 +112,19 @@ class HistoryViewController: UIViewController, DatePickerDelegate {
         navigationItem.rightBarButtonItem = cancel
         self.specialDate = date
         
-        if let records = records {
-            sections = [Int : [Record]]()
-            createSections(from: records, at: date)
-            tableView.reloadData()
-        }
+        sections = [Int : [Record]]()
+        createSections(from: records, at: date)
+        tableView.reloadData()
+        showEmptyRecords(show: sections.count == 0)
     }
     
     @objc func cancelSearch() {
+        specialDate = nil
         navigationItem.rightBarButtonItem = nil
+        createSections(from: records)
+        tableView.reloadData()
+        
+        showEmptyRecords(show: sections.count == 0)
     }
     
 }

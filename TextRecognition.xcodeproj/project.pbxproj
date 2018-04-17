@@ -10,6 +10,8 @@
 		24804FDB387DA5B355D97190 /* Pods_TextRecognition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D771A5D23E484261AAAA06EA /* Pods_TextRecognition.framework */; };
 		91147CB9205A76EA00DC997F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91147CB8205A76EA00DC997F /* ViewController.swift */; };
 		91147CBB205A875300DC997F /* CameraSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91147CBA205A875300DC997F /* CameraSwitch.swift */; };
+		911633D2208460E1001B3792 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911633D1208460E1001B3792 /* LoginViewController.swift */; };
+		911633D420846539001B3792 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911633D320846539001B3792 /* SettingsTableViewController.swift */; };
 		911D680A2071E18500FBBCEA /* OpaqTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911D68092071E18500FBBCEA /* OpaqTitleView.swift */; };
 		911D680C2071E1E800FBBCEA /* OpaqTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 911D680B2071E1E800FBBCEA /* OpaqTitleView.xib */; };
 		913357392060AEF700264456 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913357382060AEF700264456 /* Record.swift */; };
@@ -55,6 +57,8 @@
 /* Begin PBXFileReference section */
 		91147CB8205A76EA00DC997F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		91147CBA205A875300DC997F /* CameraSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSwitch.swift; sourceTree = "<group>"; };
+		911633D1208460E1001B3792 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		911633D320846539001B3792 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		911D68092071E18500FBBCEA /* OpaqTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpaqTitleView.swift; sourceTree = "<group>"; };
 		911D680B2071E1E800FBBCEA /* OpaqTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpaqTitleView.xib; sourceTree = "<group>"; };
 		913357382060AEF700264456 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 				91C04F1C207768F700DDE2A6 /* FiltrTableViewController.swift */,
 				9133573F2060D9CA00264456 /* DetailViewController.swift */,
 				91C04F1E20776CCC00DDE2A6 /* DatePickerViewController.swift */,
+				911633D320846539001B3792 /* SettingsTableViewController.swift */,
+				911633D1208460E1001B3792 /* LoginViewController.swift */,
 				91CAFC1E207DBCCD003E26E4 /* Tutorial */,
 			);
 			path = Controller;
@@ -391,10 +397,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				911633D2208460E1001B3792 /* LoginViewController.swift in Sources */,
 				91C98677205634F100803EBD /* Router.swift in Sources */,
 				91C98674205634F100803EBD /* Extensions.swift in Sources */,
 				913357402060D9CA00264456 /* DetailViewController.swift in Sources */,
 				914CBB5D205793CB0089E56D /* HistoryTableViewCell.swift in Sources */,
+				911633D420846539001B3792 /* SettingsTableViewController.swift in Sources */,
 				91C9867E205645FA00803EBD /* TabBarViewController.swift in Sources */,
 				9133573B2060B93700264456 /* RealmController.swift in Sources */,
 				91147CB9205A76EA00DC997F /* ViewController.swift in Sources */,
@@ -564,6 +572,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MP6RX32GWF;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/TextRecognition/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -581,6 +594,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MP6RX32GWF;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/TextRecognition/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

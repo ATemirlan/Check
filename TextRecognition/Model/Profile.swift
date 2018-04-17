@@ -16,14 +16,47 @@ class Profile {
     
     func deleteUser() {
         location = nil
+        name = nil
+        isLoggedIn = false
     }
     
     var location: String? {
         set(newLocation) {
-            setStandard(string: newLocation, at: "location")
+            setStandard(string: newLocation, at: Constants.StandardDefaults.location)
         }
         get {
-            return getStandardString(from: "location")
+            return getStandardString(from: Constants.StandardDefaults.location)
+        }
+    }
+    
+    var name: String? {
+        set(newName) {
+            setStandard(string: newName, at: Constants.StandardDefaults.name)
+        }
+        get {
+            return getStandardString(from: Constants.StandardDefaults.name)
+        }
+    }
+    
+    var email: String? {
+        set(newEmail) {
+            setStandard(string: newEmail, at: Constants.StandardDefaults.email)
+        }
+        get {
+            return getStandardString(from: Constants.StandardDefaults.email)
+        }
+    }
+    
+    var isLoggedIn: Bool {
+        set(isLogged) {
+            UserDefaults.standard.set(isLogged, forKey: Constants.StandardDefaults.isLoggedIn)
+        }
+        get {
+            guard let isLogged = UserDefaults.standard.object(forKey: Constants.StandardDefaults.isLoggedIn) as? Bool else {
+                return false
+            }
+            
+            return isLogged
         }
     }
     

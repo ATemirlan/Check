@@ -31,4 +31,13 @@ struct Constants {
         static let bottom = y + height
     }
     
+    struct StandardDefaults {
+        static let location = "location"
+        
+        static let isLoggedIn = "isLoggedIn"
+        static let name = "name"
+        static let login = "login"
+        static let email = "email"
+    }
+    
 }

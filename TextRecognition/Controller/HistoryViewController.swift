@@ -33,6 +33,8 @@ class HistoryViewController: UIViewController, DatePickerDelegate {
     }
     
     func getRecords() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         RealmController.shared.getRecords { (records) in
             self.records = records
             
@@ -40,6 +42,7 @@ class HistoryViewController: UIViewController, DatePickerDelegate {
             self.tableView.reloadData()
 
             self.showEmptyRecords(show: self.sections.keys.count == 0)
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }
     

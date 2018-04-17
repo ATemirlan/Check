@@ -10,24 +10,28 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import IQKeyboardManagerSwift
+import FBSDKCoreKit
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let key = "AIzaSyAGQTbXN3_WtiYu97KFBzPoNgbOiPkp4-k"
+    let id = "290576521356-ri164ufk67okb0d2aib7a05a0pkjrecl.apps.googleusercontent.com"
     
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        setupGooglePlaces()
+        setupGoogle()
         setupKeyboard()
-        
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
     
-    func setupGooglePlaces() {
+    func setupGoogle() {
         GMSPlacesClient.provideAPIKey(key)
         GMSServices.provideAPIKey(key)
+        GIDSignIn.sharedInstance().clientID = id
     }
     
     func setupKeyboard() {

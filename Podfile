@@ -13,5 +13,7 @@ target 'TextRecognition' do
   pod 'IQKeyboardManagerSwift', '5.0.0'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'FBSDKLoginKit'
+  pod 'GoogleSignIn'
   
 end

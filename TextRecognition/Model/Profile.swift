@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class Profile {
     
@@ -17,6 +18,13 @@ class Profile {
     func deleteUser() {
         location = nil
         name = nil
+        isLoggedIn = false
+    }
+    
+    func logout() {
+        GIDSignIn.sharedInstance().signOut()
+        name = nil
+        email = nil
         isLoggedIn = false
     }
     
@@ -44,6 +52,19 @@ class Profile {
         }
         get {
             return getStandardString(from: Constants.StandardDefaults.email)
+        }
+    }
+    
+    var filter: Int {
+        set(newFilter) {
+            UserDefaults.standard.set(newFilter, forKey: Constants.StandardDefaults.filter)
+        }
+        get {
+            guard let filter = UserDefaults.standard.object(forKey: Constants.StandardDefaults.filter) as? Int else {
+                return 0
+            }
+            
+            return filter
         }
     }
     

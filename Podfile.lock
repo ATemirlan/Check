@@ -37,6 +37,7 @@ PODS:
   - GTMSessionFetcher/Core (1.1.13)
   - GTMSessionFetcher/Full (1.1.13):
     - GTMSessionFetcher/Core (= 1.1.13)
+  - Hue (3.0.1)
   - IQKeyboardManagerSwift (5.0.0)
   - NVActivityIndicatorView (4.1.1):
     - NVActivityIndicatorView/Presenter (= 4.1.1)
@@ -55,6 +56,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - GoogleSignIn
+  - Hue
   - IQKeyboardManagerSwift (= 5.0.0)
   - NVActivityIndicatorView
   - RealmSwift
@@ -72,6 +74,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 5bb1eae636127de695590f50e7d248483eb891e6
+  Hue: 93e852fa6211ab35922ad8c293f51c43d6c79eb2
   IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
   NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
   Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
@@ -79,6 +82,6 @@ SPEC CHECKSUMS:
   SwiftyCam: 86c114177a1b1f5dc2c82384577d0c20b922a31b
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 533d77ee12f32df49a0fd564b42a780a63c4e25d
+PODFILE CHECKSUM: 4372c67d8fa1509f5033ad108cbb3966cfed604b
 
 COCOAPODS: 1.1.1

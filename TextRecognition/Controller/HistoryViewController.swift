@@ -27,6 +27,13 @@ class HistoryViewController: UIViewController, DatePickerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        if Profile.current.filter == 1 {
+            navigationItem.leftBarButtonItem = nil
+        } else {
+            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showDatepicker))
+        }
+        
         if specialDate == nil {
             getRecords()
         }
@@ -37,10 +44,9 @@ class HistoryViewController: UIViewController, DatePickerDelegate {
         
         RealmController.shared.getRecords { (records) in
             self.records = records
-            
             self.createSections(from: records)
             self.tableView.reloadData()
-
+            
             self.showEmptyRecords(show: self.sections.keys.count == 0)
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
@@ -64,18 +70,19 @@ class HistoryViewController: UIViewController, DatePickerDelegate {
     }
     
     func createSections(from records: Results<Record>?, at date: Date? = nil) {
+        sections = [Int : [Record]]()
+        
         guard let records = records else {
-            sections = [Int : [Record]]()
             return
         }
         
         var keys = Set(records.map {
-            $0.date.toString()
+            Profile.current.filter == 0 ? $0.date.toString() : $0.location
         }).sorted {
             return $0.compare($1) == ComparisonResult.orderedDescending
         }
         
-        if let date = date {
+        if let date = date, Profile.current.filter == 0 {
             if keys.contains(date.toString()) {
                 keys = [date.toString()]
             } else {
@@ -92,7 +99,9 @@ class HistoryViewController: UIViewController, DatePickerDelegate {
             let key = keys[keys.index(keys.index(of: keys.first!)!, offsetBy: i)]
             
             for record in records {
-                if record.date.toString() == key {
+                if Profile.current.filter == 0, record.date.toString() == key {
+                    section.append(record)
+                } else if Profile.current.filter == 1, record.location == key {
                     section.append(record)
                 }
             }
@@ -102,9 +111,7 @@ class HistoryViewController: UIViewController, DatePickerDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == FiltrTableViewController.segueID {
-            
-        } else if segue.identifier == DatePickerViewController.segueID {
+        if segue.identifier == DatePickerViewController.segueID {
             let vc = segue.destination as! DatePickerViewController
             vc.delegate = self
         }
@@ -113,8 +120,7 @@ class HistoryViewController: UIViewController, DatePickerDelegate {
     func dateChoosed(date: Date) {
         cancel = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelSearch))
         navigationItem.rightBarButtonItem = cancel
-        self.specialDate = date
-        
+        specialDate = date
         sections = [Int : [Record]]()
         createSections(from: records, at: date)
         tableView.reloadData()
@@ -123,11 +129,18 @@ class HistoryViewController: UIViewController, DatePickerDelegate {
     
     @objc func cancelSearch() {
         specialDate = nil
-        navigationItem.rightBarButtonItem = nil
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "filter"), style: .done, target: self, action: #selector(showFilter))
         createSections(from: records)
         tableView.reloadData()
-        
         showEmptyRecords(show: sections.count == 0)
+    }
+    
+    @objc func showDatepicker() {
+        performSegue(withIdentifier: DatePickerViewController.segueID, sender: nil)
+    }
+    
+    @objc func showFilter() {
+        performSegue(withIdentifier: FiltrTableViewController.segueID, sender: nil)
     }
     
 }
@@ -174,7 +187,11 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate, UIP
         var sum: Float = 0.0
         let _ = records.map { sum += $0.value }
         
-        return "\(records[0].date.toString()) (\(sum.formattedNumber()))"
+        if Profile.current.filter == 0 {
+            return "\(records[0].date.toString()) (\(sum.formattedNumber()))"
+        } else {
+            return "\(records[0].location) (\(sum.formattedNumber()))"
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

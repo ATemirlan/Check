@@ -22,9 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         setupGoogle()
         setupKeyboard()
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         return true
     }
     
@@ -37,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupKeyboard() {
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
-//        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+        IQKeyboardManager.sharedManager().previousNextDisplayMode = .alwaysHide
         
         IQKeyboardManager.sharedManager().toolbarTintColor = .black
         IQKeyboardManager.sharedManager().toolbarBarTintColor = .white

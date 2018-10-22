@@ -15,5 +15,6 @@ target 'TextRecognition' do
   pod 'GooglePlaces'
   pod 'FBSDKLoginKit'
   pod 'GoogleSignIn'
+  pod 'Hue'
   
 end

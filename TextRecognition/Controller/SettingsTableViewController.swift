@@ -12,7 +12,7 @@ class SettingsTableViewController: UITableViewController {
     
     @IBOutlet weak var accountLabel: UILabel!
     
-    let sectionTitles = ["Для сохранения истории Войдите в свой аккаунт", "Персонализация", "Параметры истории"]
+    let sectionTitles = ["Для сохранения истории Войдите в свой аккаунт", "История", ""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,9 +49,9 @@ class SettingsTableViewController: UITableViewController {
     func askToLogout() {
         Alert.showAlert(vc: self, title: "Выйти из аккаунта?", message: "Новые записи будут сохранены только локально.", actions: [
             UIAlertAction(title: "Да", style: .destructive, handler: { (action) in
-                Profile.current.isLoggedIn = false
-                Profile.current.email = nil
-                Profile.current.name = nil
+                Profile.current.logout()
+                self.tableView.reloadData()
+                self.accountLabel.text = Profile.current.name ?? "Аккаунт"
             }),
             
             UIAlertAction(title: "Нет", style: .cancel, handler: nil)

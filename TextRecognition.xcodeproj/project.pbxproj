@@ -26,6 +26,8 @@
 		917E463C207F1B0F009ACFF5 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917E463B207F1B0F009ACFF5 /* TutorialPageViewController.swift */; };
 		917E463E207F2041009ACFF5 /* Page2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917E463D207F2041009ACFF5 /* Page2ViewController.swift */; };
 		917E4640207F2BFE009ACFF5 /* Page3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917E463F207F2BFE009ACFF5 /* Page3ViewController.swift */; };
+		919047F02089B0EB00288EF3 /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919047EF2089B0EB00288EF3 /* AppLabel.swift */; };
+		91A19A4B2087428D00435E76 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A19A4A2087428D00435E76 /* Color.swift */; };
 		91C04F1B2077268800DDE2A6 /* SaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C04F1A2077268800DDE2A6 /* SaveButton.swift */; };
 		91C04F1D207768F700DDE2A6 /* FiltrTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C04F1C207768F700DDE2A6 /* FiltrTableViewController.swift */; };
 		91C04F1F20776CCC00DDE2A6 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C04F1E20776CCC00DDE2A6 /* DatePickerViewController.swift */; };
@@ -48,6 +50,7 @@
 		91CDB0EF2058EFCD0033422F /* RequestEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CDB0EE2058EFCD0033422F /* RequestEngine.swift */; };
 		91D21E5220722E7E00AB4F10 /* OpaqValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D21E5120722E7E00AB4F10 /* OpaqValueView.swift */; };
 		91D21E5520722F3B00AB4F10 /* OpaqValueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D21E5420722F3B00AB4F10 /* OpaqValueView.xib */; };
+		91F027C12086FDC100C8D626 /* ColorCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F027C02086FDC100C8D626 /* ColorCollectionViewController.swift */; };
 		91FFA03A204F921900EAD7B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFA039204F921900EAD7B5 /* AppDelegate.swift */; };
 		91FFA03F204F921A00EAD7B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91FFA03D204F921A00EAD7B5 /* Main.storyboard */; };
 		91FFA041204F921A00EAD7B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91FFA040204F921A00EAD7B5 /* Assets.xcassets */; };
@@ -73,6 +76,8 @@
 		917E463B207F1B0F009ACFF5 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		917E463D207F2041009ACFF5 /* Page2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2ViewController.swift; sourceTree = "<group>"; };
 		917E463F207F2BFE009ACFF5 /* Page3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page3ViewController.swift; sourceTree = "<group>"; };
+		919047EF2089B0EB00288EF3 /* AppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
+		91A19A4A2087428D00435E76 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		91C04F1A2077268800DDE2A6 /* SaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButton.swift; sourceTree = "<group>"; };
 		91C04F1C207768F700DDE2A6 /* FiltrTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltrTableViewController.swift; sourceTree = "<group>"; };
 		91C04F1E20776CCC00DDE2A6 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +100,7 @@
 		91CDB0EE2058EFCD0033422F /* RequestEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEngine.swift; sourceTree = "<group>"; };
 		91D21E5120722E7E00AB4F10 /* OpaqValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpaqValueView.swift; sourceTree = "<group>"; };
 		91D21E5420722F3B00AB4F10 /* OpaqValueView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpaqValueView.xib; sourceTree = "<group>"; };
+		91F027C02086FDC100C8D626 /* ColorCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewController.swift; sourceTree = "<group>"; };
 		91FFA036204F921900EAD7B5 /* TextRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91FFA039204F921900EAD7B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91FFA03E204F921A00EAD7B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 				91C9866F205634F000803EBD /* Extensions.swift */,
 				91C98672205634F100803EBD /* Router.swift */,
 				9150F985205F6D6C00A788C1 /* Utils.swift */,
+				91A19A4A2087428D00435E76 /* Color.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -201,6 +208,7 @@
 				914CBB5C205793CB0089E56D /* HistoryTableViewCell.xib */,
 				91C04F1A2077268800DDE2A6 /* SaveButton.swift */,
 				91147CBA205A875300DC997F /* CameraSwitch.swift */,
+				919047EF2089B0EB00288EF3 /* AppLabel.swift */,
 				91CB7C35205BBD070034DE6E /* List */,
 				91D21E5320722F1700AB4F10 /* OpaqViews */,
 			);
@@ -219,6 +227,7 @@
 				9133573F2060D9CA00264456 /* DetailViewController.swift */,
 				91C04F1E20776CCC00DDE2A6 /* DatePickerViewController.swift */,
 				911633D320846539001B3792 /* SettingsTableViewController.swift */,
+				91F027C02086FDC100C8D626 /* ColorCollectionViewController.swift */,
 				911633D1208460E1001B3792 /* LoginViewController.swift */,
 				91CAFC1E207DBCCD003E26E4 /* Tutorial */,
 			);
@@ -408,6 +417,7 @@
 				91147CB9205A76EA00DC997F /* ViewController.swift in Sources */,
 				91C04F1F20776CCC00DDE2A6 /* DatePickerViewController.swift in Sources */,
 				91CB7C33205BBCC90034DE6E /* ListTableViewCell.swift in Sources */,
+				91A19A4B2087428D00435E76 /* Color.swift in Sources */,
 				91C9868020567DB400803EBD /* HistoryViewController.swift in Sources */,
 				913F992A207385CB000ADFAC /* UIImageExtension.swift in Sources */,
 				91CDB0EF2058EFCD0033422F /* RequestEngine.swift in Sources */,
@@ -427,9 +437,11 @@
 				91CB7C37205BBFB60034DE6E /* Label.swift in Sources */,
 				917E463E207F2041009ACFF5 /* Page2ViewController.swift in Sources */,
 				91C98676205634F100803EBD /* Alert.swift in Sources */,
+				919047F02089B0EB00288EF3 /* AppLabel.swift in Sources */,
 				917E463A207F1880009ACFF5 /* Page1ViewController.swift in Sources */,
 				9133573E2060D30900264456 /* Profile.swift in Sources */,
 				91C04F1B2077268800DDE2A6 /* SaveButton.swift in Sources */,
+				91F027C12086FDC100C8D626 /* ColorCollectionViewController.swift in Sources */,
 				911D680A2071E18500FBBCEA /* OpaqTitleView.swift in Sources */,
 				91CB7C2F205BBC400034DE6E /* ListViewController.swift in Sources */,
 				91C9867A2056356A00803EBD /* CameraViewController.swift in Sources */,
